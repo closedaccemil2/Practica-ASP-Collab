@@ -9,7 +9,7 @@ namespace Practica_ASP_Collab.Controllers
     public class LoginEmilController : Controller
     {
         // GET: LoginEmil
-        public ActionResult Index()
+        public ActionResult Login()
         {
             return View();
         }

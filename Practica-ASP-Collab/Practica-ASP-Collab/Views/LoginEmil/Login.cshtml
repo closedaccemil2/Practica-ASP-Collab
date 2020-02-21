@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<br/>
+
+<div class="jumbotron">
+    <h1 class="display-4">Bienvenid@@!</h1>
+    <p class="lead">Esta aplicación fue construida en ASP.NET C# por Paulina Gómez y Emil Barranco.</p>
+    <hr class="my-4">
+    <p>Inicie sesión en Facebook para continuar.</p>
+    <button class="btn btn-info btn-lg">Iniciar Sesión</button>
+</div>
+
+<script>
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '{your-app-id}',
+            cookie: true,
+            xfbml: true,
+            version: '{api-version}'
+        });
+
+        FB.AppEvents.logPageView();
+
+    };
+
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) { return; }
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    
+    FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+    });
+</script>
