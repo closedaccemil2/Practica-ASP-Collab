@@ -17,16 +17,21 @@ namespace Practica_ASP_Collab.Controllers
 
         
         [HttpPost]
-        public ActionResult Resultados(Persona per)
+        public ActionResult Formulario(Persona per)
         {
             if (ModelState.IsValid)
             {
-                return View(per);
+                return RedirectToAction("Resultados",per);
             }
             else
             {
-                return RedirectToAction("Formulario");
+                return View();
             }
+        }
+
+        public ActionResult Resultados(Persona per)
+        {
+            return View(per);
         }
     }
 }

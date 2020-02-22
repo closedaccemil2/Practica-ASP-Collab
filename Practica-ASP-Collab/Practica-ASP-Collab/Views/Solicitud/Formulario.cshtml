@@ -6,20 +6,25 @@
 
 <h2>Formulario</h2>
 
-@using (Html.BeginForm("Resultados", "Solicitud", FormMethod.Post))
+@using (Html.BeginForm("Formulario", "Solicitud", FormMethod.Post))
 {
 
     @Html.Label("Cédula:")
+    @Html.ValidationMessageFor(a => a.Cedula,"",  new { @class = "text-danger" })
     @Html.TextBoxFor(a => a.Cedula, new { @class = "form-control", placeholder = "Ej: 402-1112223-2" })
     @Html.Label("Nombre:")
+    @Html.ValidationMessageFor(a => a.Nombre, "", new { @class = "text-danger" })
     @Html.TextBoxFor(a => a.Nombre, new { @class = "form-control", placeholder = "Ej: Mario" })
     @Html.Label("Apellido:")
+    @Html.ValidationMessageFor(a => a.Apellido, "", new { @class = "text-danger" })
     @Html.TextBoxFor(a => a.Apellido, new { @class = "form-control", placeholder = "Ej: Gonzalez" })
     @Html.Label("Edad:")
+    @Html.ValidationMessageFor(a => a.Edad, "", new { @class = "text-danger" })
     @Html.TextBoxFor(a => a.Edad, new { @class = "form-control" })
-    @Html.Label("Telefono:")
+    @Html.Label("Teléfono:")
     @Html.TextBoxFor(a => a.Telefono, new { @class = "form-control", placeholder = "Ej: 809-333-4444" })
     @Html.Label("Correo:")
+    @Html.ValidationMessageFor(a => a.Correo, "", new { @class = "text-danger" })
     @Html.TextBoxFor(a => a.Correo, new { @class = "form-control", placeholder = "Ej: mgonzalez@gmail.com" })
     @Html.Label("Genero:")
     <br />
