@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
 
 namespace Practica_ASP_Collab.Models
 {
@@ -21,6 +22,7 @@ namespace Practica_ASP_Collab.Models
         public string Correo { get; set; }
         public string Genero { get; set; }        
         public Vacante Vac { get; set; }
+    
         
 
     }
@@ -28,5 +30,5 @@ namespace Practica_ASP_Collab.Models
     public enum Vacante
     {
 
-        Dessarrollador, Disenador, Manager, Analista    }
+        Dessarrollador, Diseñador, Manager, Analista    }
 }

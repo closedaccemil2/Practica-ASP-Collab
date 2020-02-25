@@ -1,4 +1,5 @@
 ﻿@model  Practica_ASP_Collab.Models.Persona
+
 @using Practica_ASP_Collab.Models
 @{
     ViewBag.Title = "Formulario";
@@ -6,11 +7,11 @@
 
 <h2>Formulario</h2>
 
-@using (Html.BeginForm("Formulario", "Solicitud", FormMethod.Post))
+@using (Html.BeginForm("Resultados", "Solicitud", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
 
     @Html.Label("Cédula:")
-    @Html.ValidationMessageFor(a => a.Cedula,"",  new { @class = "text-danger" })
+    @Html.ValidationMessageFor(a => a.Cedula, "", new { @class = "text-danger" })
     @Html.TextBoxFor(a => a.Cedula, new { @class = "form-control", placeholder = "Ej: 402-1112223-2" })
     @Html.Label("Nombre:")
     @Html.ValidationMessageFor(a => a.Nombre, "", new { @class = "text-danger" })
@@ -34,11 +35,14 @@
     @Html.RadioButtonFor(a => a.Genero, "Femenino")
     <br />
     @Html.Label("Puesto vacante al que desea aplicar:")
-    @Html.DropDownListFor(a => a.Vac, new SelectList(Enum.GetValues(typeof(Vacante))), "Seleccione")
-    @Html.Label("Ingrese una foto:")
-    <input type="file" />
+    @Html.DropDownListFor(a => a.Vac, new SelectList(Enum.GetValues(typeof(Vacante))), "Seleccione")<br />
+
+    @Html.Label("Suba una foto:")
+
+    <input type="file" name="imagen" /> <br />   
+
     @Html.Label("Suba su curriculum vitae")
-    <input type="file" />
+    <input type="file" name="pdf"/> <br />
 
     <input type="submit" value="Enviar" />
 

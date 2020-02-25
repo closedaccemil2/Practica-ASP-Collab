@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Practica_ASP_Collab.Models;
+using System.IO;
 
 namespace Practica_ASP_Collab.Controllers
 {
@@ -15,23 +16,28 @@ namespace Practica_ASP_Collab.Controllers
             return View();
         }
 
-        
+
         [HttpPost]
-        public ActionResult Formulario(Persona per)
+        public ActionResult Resultados(Persona per, HttpPostedFileBase imagen, HttpPostedFileBase pdf)
         {
+
             if (ModelState.IsValid)
             {
-                return RedirectToAction("Resultados",per);
+                string nombreFoto = imagen.FileName;
+                string nombrePdf = pdf.FileName;
+
+                pdf.SaveAs(Server.MapPath("/PDF/" + nombrePdf));
+                imagen.SaveAs(Server.MapPath("/Fotos/" + nombreFoto));
+
+                ViewBag.pdf = nombrePdf;
+                ViewBag.foto = nombreFoto;
+                return View(per);
             }
             else
             {
-                return View();
+                return View("Formulario");
             }
-        }
 
-        public ActionResult Resultados(Persona per)
-        {
-            return View(per);
         }
     }
 }
