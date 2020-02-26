@@ -16,16 +16,31 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Practica-ASP-Collab", "Login", "LoginEmil", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Home", "Login", "LoginEmil")</li>
+                    <li>@Html.ActionLink("Acerca de:", "Index", "About")</li>
+                    <li>@Html.ActionLink("Solicitud", "Formulario", "Solicitud")</li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Filtro de contenidos <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Noticias", "Noticias", "Contenido")</li>
+                            <li>@Html.ActionLink("Música", "Musica", "Contenido")</li>
+                            <li>@Html.ActionLink("Películas", "Peliculas", "Contenido")</li>
+                            
+                        </ul>
+                    </li>
                 </ul>
+
+              
+                
             </div>
         </div>
+
+
     </div>
     <div class="container body-content">
         @RenderBody()
