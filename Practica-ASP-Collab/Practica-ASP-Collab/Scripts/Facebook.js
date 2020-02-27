@@ -28,14 +28,9 @@ function statusChangeCallback(response) {  // Called with the results from FB.ge
         });
 
 
-    FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
-        statusChangeCallback(response);        // Returns the login status.
-    });
-
-    FB.Event.subscribe('auth.login', function () {
-        window.location = '~/Views/Solicitud/Formulario';
-        console.log('~/Views/Solicitud/Formulario');
-    });
+        FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
+            statusChangeCallback(response);        // Returns the login status.
+        });
 };
 
 
