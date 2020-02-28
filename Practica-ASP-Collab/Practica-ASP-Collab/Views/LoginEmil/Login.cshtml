@@ -10,7 +10,12 @@
     <p class="lead">Esta aplicación fue construida en ASP.NET C# & JavaScript por Paulina Gómez y Emil Barranco.</p>
     <hr class="my-4">
     <p>Inicie sesión en Facebook para continuar.</p>
-    <a href="~/Views/About/Index.cshtml">
-    <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
-    </a>
+    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+    </fb:login-button>
+    <span id="status"></span>
+    <span id="home"></span>
 </div>
+
+
+
+

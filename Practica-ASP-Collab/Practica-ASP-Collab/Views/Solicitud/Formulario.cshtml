@@ -35,17 +35,22 @@
     @Html.RadioButtonFor(a => a.Genero, "Femenino")
     <br />
     @Html.Label("Puesto vacante al que desea aplicar:")
-    @Html.DropDownListFor(a => a.Vac, new SelectList(Enum.GetValues(typeof(Vacante))), "Seleccione")<br />
+    @Html.DropDownListFor(a => a.Vac, new SelectList(Enum.GetValues(typeof(Vacante))), "Seleccione")
+    <br />
 
     @Html.Label("Suba una foto:")
 
-    <input type="file" name="imagen" accept="image/*"/> <br />   
+    <input type="file" name="imagen" accept="image/*" />
+    <br />
+
+
 
     @Html.Label("Suba su curriculum vitae")
-    <input type="file" name="pdf" accept=".pdf" /> <br />
+    <input type="file" name="pdf" accept=".pdf" />
+    <br />
 
     <input type="submit" value="Enviar" />
 
-
+    <button class="btn btn-outline-primary"><a href="/LoginEmil/Home">Volver a Home</a></button>
 
 }

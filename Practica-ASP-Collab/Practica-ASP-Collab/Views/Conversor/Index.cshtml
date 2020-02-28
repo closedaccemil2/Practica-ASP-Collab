@@ -1,0 +1,230 @@
+﻿
+@{
+    ViewBag.Title = "Formulario";
+}
+
+<h2 style="text-align: center;">Conversor de Unidades</h2>
+<hr />
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card" style="width: 100%;">
+                <div class="card-body">
+                    <h2>Parametros - Longitud</h2>
+                    <hr />
+                    <form name="length_con">
+                        <h4 style="font-weight: 300;">Unidad de Entrada:</h4>
+                        <select name=from_unit onChange="initConversion()" class="form-control">
+                            <option> Centrimetros </option>
+                            <option> Metros </option>
+                            <option> Kilometros </option>
+                            <option> Millas </option>
+                            <option> Pulgadas </option>
+                            <option> Pies </option>
+                        </select>
+                        <br />
+                        <h4 style="font-weight: 300;">Unidad de Entrada:</h4>
+                        <select name=to_unit onChange="initConversion()" class="form-control">
+                            <option> Centrimetros </option>
+                            <option> Metros </option>
+                            <option> Kilometros </option>
+                            <option> Millas </option>
+                            <option> Pulgadas </option>
+                            <option> Pies </option>
+                        </select>
+                        <br />
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Digite la cifra:</label>
+                            <input type="text" name="from_value" value="1" size="12" maxlength="12" class="form-control">
+                        </div>
+                        <input type=button value="Convertir" onClick="initConversion()" class="btn btn-primary">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2>Resultado</h2>
+                    <hr />
+                    <p class="card-text">Formula: <div id="formula">Centimetros = 1 Centimetros</div></p>
+                    <h3><span id="to_value">0</span></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card" style="width: 100%;">
+                <div class="card-body">
+                    <h2>Parametros - Temperatura</h2>
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Fahrenheit:</label>
+                        <input type="text" id="far" value="1" size="12" maxlength="12" class="form-control">
+                    </div>
+                    <br />
+                    <select id="tempsF" class="form-control">
+                        <option selected>Seleccione:</option>
+                        <option value="Cel">Celsius</option>
+                        <option value="Kel">Kelvin</option>
+                    </select>
+                    <input type=button value="Convertir" onClick="temperatureConverter(document.getElementById('far').value)" class="btn btn-primary">
+
+                    <hr />
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Celsius:</label>
+                        <input type="text" id="cel" value="1" size="12" maxlength="12" class="form-control">
+                    </div>
+                    <br />
+                    <select id="tempsC" class="form-control">
+                        <option selected>Seleccione:</option>
+                        <option value="Far">Fahrenheit</option>
+                        <option value="Kel">Kelvin</option>
+                    </select>
+                    <input type=button value="Convertir" onClick="temperatureConverter(document.getElementById('cel').value)" class="btn btn-primary">
+
+                    <hr />
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Kelvin:</label>
+                        <input type="text" id="kel" value="1" size="12" maxlength="12" class="form-control">
+                    </div>
+                    <br />
+                    <select id="tempsK" class="form-control">
+                        <option selected>Seleccione:</option>
+                        <option value="Cel">Celsius</option>
+                        <option value="Far">Fahrenheit</option>
+                    </select>
+                    <input type=button value="Convertir" onClick="temperatureConverter(document.getElementById('kel').value)" class="btn btn-primary">
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2>Resultado</h2>
+                    <hr />
+                    <p>Fahrenheit: <span id="outputFahrenheit"></span></p>
+                    <p>Celcius: <span id="outputCelcius"></span></p>
+                    <p>Kelvin: <span id="outputKelvin"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card" style="width: 100%;">
+                <div class="card-body">
+                    <h2>Parametros - Masa</h2>
+
+                    <div class="form-group">
+                        <label>Gramos:</label>
+                        <input type="text" id="gram" value="1" size="12" maxlength="12" class="form-control">
+                    </div>
+                    <select id="massG" class="form-control">
+                        <option selected>Seleccione:</option>
+                        <option value="Lib">Libra</option>
+                        <option value="Kil">Kilogramo</option>
+                        <option value="Onz">Onza</option>
+                    </select>
+                    <input type=button value="Convertir" onClick="weightConverter(document.getElementById('gram').value)" class="btn btn-primary">
+
+                    <hr />
+
+                    <div class="form-group">
+                        <label>Kilogramos:</label>
+                        <input type="text" id="kil" value="1" size="12" maxlength="12" class="form-control">
+                    </div>
+                    <select id="massK" class="form-control">
+                        <option selected>Seleccione:</option>
+                        <option value="Lib">Libra</option>
+                        <option value="Gram">Gramos</option>
+                        <option value="Onz">Onza</option>
+                    </select>
+                    <input type=button value="Convertir" onClick="weightConverter(document.getElementById('kil').value)" class="btn btn-primary">
+
+                    <hr />
+
+                    <div class="form-group">
+                        <label>Onzas:</label>
+                        <input type="text" id="onz" value="1" size="12" maxlength="12" class="form-control">
+                    </div>
+                    <select id="massO" class="form-control">
+                        <option selected>Seleccione:</option>
+                        <option value="Lib">Libra</option>
+                        <option value="Gram">Gramos</option>
+                        <option value="Kil">Kilogramo</option>
+                    </select>
+                    <input type=button value="Convertir" onClick="weightConverter(document.getElementById('onz').value)" class="btn btn-primary">
+
+                    <hr />
+
+                    <div class="form-group">
+                        <label>Libra:</label>
+                        <input type="text" id="lib" value="1" size="12" maxlength="12" class="form-control">
+                    </div>
+                    <select id="massL" class="form-control">
+                        <option selected>Seleccione:</option>
+                        <option value="Onz">Onzas</option>
+                        <option value="Gram">Gramos</option>
+                        <option value="Kil">Kilogramo</option>
+                    </select>
+                    <input type=button value="Convertir" onClick="weightConverter(document.getElementById('lib').value)" class="btn btn-primary">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2>Resultado</h2>
+                    <p>Onzas: <span id="outputOunces"></span></p>
+                    <p>Gramos: <span id="outputGrams"></span></p>
+                    <p>Kilogramos: <span id="outputKilograms"></span></p>
+                    <p>Libras: <span id="outputPounds"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card" style="width: 100%;">
+                <div class="card-body">
+                    <h2>Parametros - Datos</h2>
+
+                    <div class="form-group">
+                        <label>Valor en Bytes:</label>
+                        <input type="number" id="byteVal" value="1" size="12" maxlength="12" class="form-control">
+                    </div>
+                    <input type=button value="Convertir" onClick="readableBytes(document.getElementById('byteVal').value)" class="btn btn-primary">
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2>Resultado</h2>
+                    <hr />
+                    <p>Resultado Unidad de Almacenamiento: <span id="unitResult"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <button class="btn btn-outline-primary"><a href="/LoginEmil/Home">Volver a Home</a></button>
+</div>
+
+<script src="~/Scripts/Converter.js"></script>
